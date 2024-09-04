@@ -12,7 +12,7 @@ from src.log_config import info_logger, error_logger
 chrome_options = Options()
 
 # 启用无头模式
-# chrome_options.add_argument("--headless")
+chrome_options.add_argument("--headless")
 
 # 添加隐藏 WebDriver 的特征的选项
 chrome_options.add_argument("--disable-blink-features=AutomationControlled")
@@ -38,9 +38,10 @@ def save_html(driver, name='tmp'):
 
 def crawler(url='https://qytcc01a.qingyunti.pro/dashboard'):
     # 指定driver路径（如果需要）
-    driver_path = '/Users/dongyanshen/Desktop/DYSProjects/VPNMonitor/driver/chromedriver-mac-arm64/chromedriver'
-    service = Service(driver_path)
-    driver = webdriver.Chrome(options=chrome_options, service=service)
+    # driver_path = '/Users/dongyanshen/Desktop/DYSProjects/VPNMonitor/driver/chromedriver-mac-arm64/chromedriver'
+    # service = Service(driver_path)
+    # driver = webdriver.Chrome(options=chrome_options, service=service)
+    driver = webdriver.Chrome(options=chrome_options)
     driver.implicitly_wait(30)
     driver.get(url)
 
